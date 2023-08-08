@@ -12,6 +12,8 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v3
+            - name: Print pwd
+              run: pwd
 
         # Build and test frontend
             - name: Install Node
