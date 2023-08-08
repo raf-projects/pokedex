@@ -17,7 +17,7 @@ function Dashboard() {
 
     useEffect(() => {
         async function getAllPokemon(){
-            let response = await fetch("http://localhost:5000/pokemons");
+            let response = await fetch("/pokemons");
             let responseBody = await response.json();
 
             setPokemons(responseBody.results)
@@ -32,7 +32,7 @@ function Dashboard() {
     async function getPokemon(event : any){
         let pokeName = event.target.innerText;
 
-        let response = await fetch(`http://localhost:5000/pokemon/${pokeName}`);
+        let response = await fetch(`/pokemon/${pokeName}`);
 
         let responseBody = await response.json();
 

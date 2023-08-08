@@ -37,7 +37,18 @@ jobs:
                 pip install -r requirements.txt
                 pytest --rootdir=/home/runner/work/pokedex/pokedex/backend
 
-        # Deploy to AWS
+        # Create EB Zip
+            - name: Zip app
+              run: zip -r app.zip backend frontend README.md
+
+        # Deploy to AWS EB
             - name: Deploy to AWS
-              run: | 
-                # deploy script
+              uses: einaregilsson/beanstalk-deploy@v21
+              with:
+                aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                application_name: Pokedex
+                environment_name: Pokedex-env
+                region: us-east-1
+                version_label: ${{ github.run_id }}
+                source_bundle: app.zip
