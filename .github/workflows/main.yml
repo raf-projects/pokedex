@@ -11,11 +11,11 @@ jobs:
 
         steps:
             - name: Checkout code
-              uses: actions/checkout@v2
+              uses: actions/checkout
 
         # Build and test frontend
             - name: Install Node
-              uses: actions/setup-node@v2
+              uses: actions/setup-node
               with:
                 node-version: '16'
             
@@ -27,7 +27,7 @@ jobs:
 
         # Build and test backend
             - name: Set up Python
-              uses: actions/setup-python@v2
+              uses: actions/setup-python
               with:
                 python-version: '3.8'
 
