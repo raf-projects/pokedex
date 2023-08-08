@@ -1,8 +1,8 @@
 import pytest
 import os, sys
 import requests_mock
-# sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'backend'))
-sys.path.append('backend')
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+# sys.path.append('backend')
 from app import create_app
 
 @pytest.fixture
