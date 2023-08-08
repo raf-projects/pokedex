@@ -1,5 +1,5 @@
 import pytest
-from backend.app import create_app
+from ..backend.app import create_app
 import requests_mock
 
 @pytest.fixture
