@@ -1,0 +1,43 @@
+name: Pokedex CI/CD
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+        # Build and test frontend
+            - name: Install Node
+              uses: actions/setup-node@v2
+              with:
+                node-version: '16'
+            
+            - name: Install dependencies, build frontend
+              run: | 
+                cd frontend
+                npm install
+                npm run build
+
+        # Build and test backend
+            - name: Set up Python
+              uses: actions/setup-python@v2
+              with:
+                python-version: '3.8'
+
+            - name: Install dependencies and test backend
+              run: | 
+                cd backend
+                pip install -r requirements.txt
+                pytest
+
+        # Deploy to AWS
+            - name: Deploy to AWS
+              run: | 
+                # deploy script
