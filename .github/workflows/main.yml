@@ -38,6 +38,7 @@ jobs:
 
             - name: Install dependencies and test backend
               run: | 
+                cd backend
                 source venv/bin/activate
                 pip install -r requirements.txt
                 pytest
