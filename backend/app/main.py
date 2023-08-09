@@ -1,6 +1,8 @@
+import os, sys
 from flask import Flask
 from flask_cors import CORS
-from .routes import pokemon_routes
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'app'))
+from routes import pokemon_routes
 
 def create_app(config_name):
     app = Flask(__name__)
