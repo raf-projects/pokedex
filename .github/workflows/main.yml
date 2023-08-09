@@ -44,7 +44,7 @@ jobs:
 
         # Create EB Zip
             - name: Zip app
-              run: zip -r app.zip backend frontend .platform .ebextensions README.md
+              run: zip -r app.zip backend frontend .platform README.md
 
         # Deploy to AWS EB
             - name: Deploy to AWS
