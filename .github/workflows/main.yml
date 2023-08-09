@@ -31,11 +31,16 @@ jobs:
               with:
                 python-version: '3.11'
 
+            - name: Mk Venv
+              run: |
+                cd backend
+                python3 -m venv venv
+
             - name: Install dependencies and test backend
               run: | 
-                cd backend
+                source venv/bin/activate
                 pip install -r requirements.txt
-                pytest --rootdir=/home/runner/work/pokedex/pokedex/backend
+                pytest
 
         # Create EB Zip
             - name: Zip app
