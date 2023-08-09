@@ -1,13 +1,14 @@
 import pytest
 import os, sys
 import requests_mock
+from backend.config import DevelopmentConfig
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'app'))
 # sys.path.append('backend')
 from main import create_app
 
 @pytest.fixture
 def client():
-    app = create_app('../config.DevelopmentConfig')
+    app = create_app(DevelopmentConfig)
     app.config['TESTING'] = True
     with app.test_client() as client:
         yield client
