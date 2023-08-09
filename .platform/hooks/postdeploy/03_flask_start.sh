@@ -6,4 +6,4 @@ echo "PWD: $(pwd)" >> /var/log/out.log
 ls -l >> /var/log/out.log
 export PYTHONPATH=$PYTHONPATH:/var/app/current/backend/dependencies
 echo "PYPATH: $(echo $PYTHONPATH)" >> /var/log/out.log
-python3.11 run.py >> /var/log/out.log 2>&1
+python3.11 run.py & >> /var/log/out.log 2>&1
