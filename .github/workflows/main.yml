@@ -33,19 +33,19 @@ jobs:
 
             - name: Mk Venv
               run: |
-                cd backend
                 python3 -m venv venv
+                source venv/bin/activate
+                pip install -r backend/requirements.txt
 
             - name: Install dependencies and test backend
               run: | 
                 cd backend
-                source venv/bin/activate
                 pip install -r requirements.txt
                 pytest
 
         # Create EB Zip
             - name: Zip app
-              run: zip -r app.zip backend frontend .ebextensions README.md
+              run: zip -r app.zip backend frontend venv .ebextensions README.md
 
         # Deploy to AWS EB
             - name: Deploy to AWS
