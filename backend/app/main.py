@@ -6,7 +6,7 @@ from routes import pokemon_routes
 
 def create_app(config_name):
     app = Flask(__name__)
-    CORS(app, origins=['http://localhost:3000'])  # Enables CORS for all routes
+    CORS(app, origins=['http://127.0.0.1:8000'])  # Enables CORS for all routes
 
     app.config.from_object(config_name)  # Load configurations, e.g., from a config.py file
 
